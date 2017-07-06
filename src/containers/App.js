@@ -31,7 +31,7 @@ class App extends React.Component {
     return (
         <div className={style.TodoApp}>
             Tutaj pojawią się komponenty naszej aplikacji.
-        	<Title title={'List of Todos, number of Todos: ' + this.state.data.length}/>
+        	<Title title={this.state.data.length}/>
         </div>
     );
 }
