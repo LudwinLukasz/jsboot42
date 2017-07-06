@@ -1,11 +1,16 @@
 import React from 'react';
 import uuid from 'uuid';
 import style from './App.css';
+import Title from './Title';
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: []
+			data: [{
+				text: "zrobić listę",
+				id: 1
+			}]
 		};
 	}
 	addTodo(val) {
@@ -22,10 +27,11 @@ class App extends React.Component {
 	}
 
 	render() {
+		
     return (
-        <div className="style.TodoApp">
+        <div className={style.TodoApp}>
             Tutaj pojawią się komponenty naszej aplikacji.
-            <Title title={'ala'}/>
+        	<Title title={'List of Todos, number of Todos: ' + this.state.data.length}/>
         </div>
     );
 }
