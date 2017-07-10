@@ -1,17 +1,12 @@
 import React from 'react';
-//import style from './TotdoList.css';
+import style from './TodoList.css';
+import Todo from './Todo';
 
-const TotdoList = props => (
-	var todos = this.props.data.map(function(todo) {
-	//	return <Contact item={contact} key={contact.id}/>
-		return (<p>todo.text</p>)
-		});
-//	<div className={style.TodoList}>
-//	<div>
-//		<h2>List of Todos</h2>
-
-	//	{props.list}
-//	</div>
-//}
+const TodoList = props => (
+	<ul className={style.TodoList}>
+		{props.list.map(todo => {
+			return <Todo key={todo.id} id={todo.id} text={todo.text} remove={props.remove}/>
+		})}
+	</ul>
 );
-export default TotdoList;
+export default TodoList;

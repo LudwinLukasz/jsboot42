@@ -9,9 +9,18 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			data: [{
-				text: "zrobić listę",
-				id: 1
-			}]
+				id: 1,
+				text: 'clean room'
+				},
+				{
+				id: 2,
+				text: 'wash the dishes'
+				},
+				{
+				id: 3,
+				text: 'feed my cat'
+				}
+			]
 		};
 	}
 	addTodo(val) {
@@ -23,20 +32,18 @@ class App extends React.Component {
 		this.setState({data});
 	}
 	removeTodo(id) {
-    const remainder = this.state.data.filter(todo => todo.id !== id);
-    this.setState({data: remainder});
+		const remainder = this.state.data.filter(todo => todo.id !== id);
+		this.setState({data: remainder});
 	}
 
-	render() {
-		
-    return (
-        <div className={style.TodoApp}>
-            Tutaj pojawią się komponenty naszej aplikacji.
-        	<Title title={this.state.data.length}/>
-        	<TodoList list={this.state.data}/>
-        </div>
-    );
-}
+	render() {	
+		return (
+			<div className={style.TodoApp}>
+				<Title title={this.state.data.length}/>
+				<TodoList list={this.state.data} remove={(id) => this.removeTodo(id)}/>
+			</div>
+		);
+	}
 }
 
 export default App;
